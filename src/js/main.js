@@ -40,14 +40,14 @@ app.get('/auth/instagram/callback', async (req, res) => {
   }
 });
 
-app.get('/tag/:tag', asnyc (req, res) => {
+app.get('/tag/:tag', (req, res) => {
   // Get information about a tag object.
   console.log(instagram);
-  
+
   instagram.get(`tags/${req.params.tag}`).then(data => {
     console.log(data);
-  });
-})
+  })
+});
 
 // listen to port 3000
 app.listen(port, () => {

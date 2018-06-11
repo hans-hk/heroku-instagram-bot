@@ -9,6 +9,8 @@ const instagram = new Instagram({
 
 const redirectUri = 'http://localhost:3000/auth/instagram/callback';
 
+const port = process.env.PORT || 8080;
+
 // create express server
 const app = express();
 
@@ -38,6 +40,6 @@ app.get('/auth/instagram/callback', async (req, res) => {
   }
 });
 // listen to port 3000
-app.listen(3000, () => {
-  console.log('app listening on http://localhost:3000');
+app.listen(port, () => {
+  console.log('app listening on http://localhost:' + port);
 });

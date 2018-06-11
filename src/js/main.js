@@ -7,7 +7,7 @@ const instagram = new Instagram({
   clientSecret: process.env.NODE_ENV === 'sandbox' ? require('../../config.json').clientSecret : process.env.CLIENTSECRET
 });
 
-const redirectUri = 'http://localhost:3000/auth/instagram/callback';
+const redirectUri = process.env.REDIRECT_URI + '/auth/instagram/callback';
 
 const port = process.env.PORT || 8080;
 

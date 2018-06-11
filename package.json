@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf ./dist",
     "build": "npm run clean && babel ./src --out-dir dist/ --ignore ./node_modules",
+    "start:dev": "NODE_ENV=sandbox npm run build && node ./dist/js/main.js",
     "start": "npm run build && node ./dist/js/main.js"
   },
   "keywords": [],

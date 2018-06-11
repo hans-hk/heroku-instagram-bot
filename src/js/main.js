@@ -1,11 +1,10 @@
 const express = require('express');
 import Instagram from 'node-instagram';
-const config = require('../../config.json');
 
 // Create a new instance.
 const instagram = new Instagram({
-  clientId: config.clientId,
-  clientSecret: config.clientSecret,
+  clientId: process.env.NODE_ENV === 'sandbox' ? require('../../config.json').clientId : process.env.CLIENTID,
+  clientSecret: process.env.NODE_ENV === 'sandbox' ? require('../../config.json').clientSecret : process.env.CLIENTSECRET
 });
 
 const redirectUri = 'http://localhost:3000/auth/instagram/callback';

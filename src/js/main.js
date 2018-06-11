@@ -48,7 +48,7 @@ app.get('/auth/instagram/callback', async (req, res) => {
 });
 
 app.get('/tags/:tag', (req, res) => {
-  instagram.get(`tags/${req.params.tag}`, {access_token: instagram.config.accessToken}).then(data => {
+  instagram.get(`tags/${encodeURIComponent(req.params.tag)}`, {access_token: instagram.config.accessToken}).then(data => {
     console.log(data);
     res.json(data);
   });

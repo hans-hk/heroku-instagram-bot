@@ -39,6 +39,16 @@ app.get('/auth/instagram/callback', async (req, res) => {
     res.json(err);
   }
 });
+
+app.get('/tag/:tag', asnyc (req, res) => {
+  // Get information about a tag object.
+  console.log(instagram);
+  
+  instagram.get(`tags/${req.params.tag}`).then(data => {
+    console.log(data);
+  });
+})
+
 // listen to port 3000
 app.listen(port, () => {
   console.log('app listening on http://localhost:' + port);
